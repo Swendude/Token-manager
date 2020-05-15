@@ -5,34 +5,37 @@
     <link rel="stylesheet" type="text/css" href="https://miro.com/app/static/styles.1.0.css" />
     <script type="text/javascript" src="https://miro.com/app/static/sdk.1.1.js"></script>
     <script type="text/javascript">
-
-        var tokenLabels = {};
-
-        miro.addListener('WIDGETS_TRANSFORMATION_UPDATES', widget => {
-            console.log(widget);
-        })
-
         miro.onReady(() => {
-            miro.initialize({
-                extensionPoints: {
-                    getWidgetMenuItems: (widgets) => {
-                        const supportedWidgets = widgets.filter((widget) => widget.type == "IMAGE");
-                        console.log(widgets);
-                        if (supportedWidgets.length == widgets.length) {
-                            return Promise.resolve([{
-                                tooltip: 'Make Token',
-                                svgIcon: '<svg  viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="black" fill-rule="evenodd" stroke="black" stroke-width="2"/></svg>',
-                                onClick: async () => {
-                                    makeTokens(widgets);
-                                }
-                            }])
-                        }
+            var tokenLabels = {};
 
-                        return Promise.resolve([]);
-                    }
-                }
+            miro.addListener('WIDGETS_TRANSFORMATION_UPDATED', widget => {
+                console.log(widget);
             })
-        })
+            
+            miro.addListener('WIDGETS_CREATED', widget => {
+                console.log(widget)
+            })
+        
+                miro.initialize({
+                    extensionPoints: {
+                        getWidgetMenuItems: (widgets) => {
+                            const supportedWidgets = widgets.filter((widget) => widget.type == "IMAGE");
+                            console.log(widgets);
+                            if (supportedWidgets.length == widgets.length) {
+                                return Promise.resolve([{
+                                    tooltip: 'Make Token',
+                                    svgIcon: '<svg  viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="black" fill-rule="evenodd" stroke="black" stroke-width="2"/></svg>',
+                                    onClick: async () => {
+                                        makeTokens(widgets);
+                                    }
+                                }])
+                            }
+
+                            return Promise.resolve([]);
+                        }
+                    }
+                })
+            })
 
         function makeTokens(widgets) {
             console.log('MakeTokens');
