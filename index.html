@@ -11,10 +11,6 @@
             miro.addListener('WIDGETS_TRANSFORMATION_UPDATED', widget => {
                 console.log(widget);
             })
-            
-            miro.addListener('WIDGETS_CREATED', widget => {
-                console.log(widget)
-            })
         
                 miro.initialize({
                     extensionPoints: {
@@ -41,7 +37,7 @@
             console.log('MakeTokens');
             let i = 0;
             widgets.forEach(widget => {
-               let label_id = miro.board.widgets.create({
+               let label = miro.board.widgets.create({
                     type: "SHAPE",
                     // capabilities: { editable: false },
                     x: widget.bounds.x,
@@ -59,8 +55,8 @@
                         fontSize: 36,
                         fontFamily: 8
                     }
-                }).id
-                console.log(id)
+                })
+                console.log(label.id)
                 i = i + 1;
             });
         }
