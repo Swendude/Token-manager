@@ -39,7 +39,6 @@
             widgets.forEach(async (widget) => {
                const label = await miro.board.widgets.create({
                     type: "SHAPE",
-                    // capabilities: { editable: false },
                     x: widget.bounds.x,
                     y: widget.bounds.bottom,
                     height: 60,
@@ -56,7 +55,7 @@
                         fontFamily: 8
                     }
                 })
-                console.log(label);
+                console.log(label[0].id);
                 i = i + 1;
             });
         }
