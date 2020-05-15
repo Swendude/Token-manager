@@ -33,21 +33,25 @@
             console.log('MakeTokens');
             let i = 0;
             widgets.forEach(widget => {
-                console.log(widget)
-                miro.board.widgets.create({type:"TEXT",
-                x:widget.bounds.x,
-                y:(widget.bounds.bottom + 10),
-                text:i.toString(10),
-                capabilities: {editable: false},
-                width: 28,
-                style: {
-                    textAlign: 'c',
-                    textAlignVertical: 'm',
-                    textColor: '#fff',
-                    backgroundColor: '#000',
-                    bold: 1,
-
-                }
+                miro.board.widgets.create({
+                    type: "SHAPE",
+                    x: widget.bounds.x,
+                    y: (widget.bounds.bottom + 10),
+                    height: 20,
+                    width: 20,
+                    plainText: i.toString(10),
+                    capabilities: { editable: false },
+                    style: {
+                        shapeType: 4,
+                        textAlign: 'c',
+                        textAlignVertical: 'm',
+                        textColor: '#fff',
+                        backgroundColor: '#000',
+                        bold: 1,
+                        borderColor: '#fff',
+                        borderWidth: '1',
+                        fontSize: 17
+                    }
                 })
                 i = i + 1;
             });
