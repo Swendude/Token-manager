@@ -16,7 +16,10 @@
                                 tooltip: 'Make Token',
                                 svgIcon: '<svg  viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="black" fill-rule="evenodd" stroke="black" stroke-width="2"/></svg>',
                                 onClick: async (widgets) => {
-                                    console.log(widgets);
+                                    widgets.forEach(widget => {
+                                        console.log(widget.id);    
+                                    });
+                                    
                                 }
                             }])
                         }
