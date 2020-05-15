@@ -37,7 +37,7 @@
             console.log('MakeTokens');
             let i = 0;
             widgets.forEach(widget => {
-               let label = miro.board.widgets.create({
+               const label = await miro.board.widgets.create({
                     type: "SHAPE",
                     // capabilities: { editable: false },
                     x: widget.bounds.x,
