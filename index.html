@@ -35,16 +35,14 @@
             widgets.forEach(widget => {
                 miro.board.widgets.create({
                     type: "SHAPE",
+                    capabilities: { editable: false },
                     x: widget.bounds.x,
                     y: (widget.bounds.bottom + 10),
-                    height: 20,
-                    width: 20,
+                    height: 40,
+                    width: 40,
                     plainText: i.toString(10),
-                    capabilities: { editable: false },
                     style: {
                         shapeType: 4,
-                        textAlign: 'c',
-                        textAlignVertical: 'm',
                         textColor: '#fff',
                         backgroundColor: '#000',
                         bold: 1,
