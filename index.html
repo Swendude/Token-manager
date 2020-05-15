@@ -7,6 +7,11 @@
     <script type="text/javascript">
 
         var tokenLabels = {};
+
+        miro.addListener('WIDGETS_TRANSFORMATION_UPDATES', widget => {
+            console.log(widget);
+        })
+
         miro.onReady(() => {
             miro.initialize({
                 extensionPoints: {
@@ -33,7 +38,7 @@
             console.log('MakeTokens');
             let i = 0;
             widgets.forEach(widget => {
-                miro.board.widgets.create({
+               let label_id = miro.board.widgets.create({
                     type: "SHAPE",
                     // capabilities: { editable: false },
                     x: widget.bounds.x,
@@ -51,7 +56,8 @@
                         fontSize: 36,
                         fontFamily: 8
                     }
-                })
+                }).id
+                console.log(id)
                 i = i + 1;
             });
         }
