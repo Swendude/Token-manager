@@ -36,7 +36,7 @@
         async function makeTokens(widgets) {
             console.log('MakeTokens');
             let i = 0;
-            widgets.forEach(widget => {
+            widgets.forEach(async (widget) => {
                const label = await miro.board.widgets.create({
                     type: "SHAPE",
                     // capabilities: { editable: false },
