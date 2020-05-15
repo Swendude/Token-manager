@@ -38,12 +38,15 @@
                 x:widget.bounds.x,
                 y:(widget.bounds.bottom + 10),
                 text:i.toString(10),
+                capabilities: {editable: false},
+                width: 28,
                 style: {
                     textAlign: 'c',
                     textAlignVertical: 'm',
                     textColor: '#fff',
                     backgroundColor: '#000',
-                    bold: 1
+                    bold: 1,
+
                 }
                 })
                 i = i + 1;
