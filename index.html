@@ -30,13 +30,14 @@
         })
 
         function makeTokens(widgets) {
+            console.log('MakeTokens');
             widgets.forEach(widget => {
                 console.log(widget)
                 miro.board.widgets.create({type:"TEXT",
                 x:widget.bounds.x,
                 y:widget.bounds.bottom,
                 text:"A new label!"
-                 })
+                })
             });
         }
     </script>
