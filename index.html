@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="https://miro.com/app/static/styles.1.0.css"/>
     <script type="text/javascript" src="https://miro.com/app/static/sdk.1.1.js"></script>
     <script type="text/javascript">
     miro.onReady(() => {
@@ -9,19 +10,12 @@
             getWidgetMenuItems: (widgets) => {
                 return Promise.resolve ([{
                     tooltip: 'Make Token',
-                    svgIcon: 'icon24',
+                    svgIcon: '<svg  viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="black" fill-rule="evenodd" stroke="black" stroke-width="2"/></svg>',
                     onClick: async (widgets) => {
-                        console.log("hai");
+                        console.log(widgets);
                     }
                 }])
             }
-        //   widgetContextMenu: {
-        //     title: 'Some title',
-        //     svgIcon: '<circle cx="12" cy="12" r="9" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="2"/>',
-        //     onClick: () => {
-        //       alert('Hello world!')
-        //     }
-        //   }
         }
       })
     })
